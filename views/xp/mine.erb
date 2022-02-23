@@ -1,0 +1,12 @@
+<header>
+    <a href="/">Back to shop...</a>
+</header>
+
+<div class="rocks">
+    <% ores.each do |ore| %>
+    <img src="<%= ore['image_url'] %>" alt="">
+    <form action="/<%= user_id %>/<%=ore['xp_gained'] %>/gain" method="get">
+        <button>MINE</button>
+    </form>
+<% end %>
+</div>

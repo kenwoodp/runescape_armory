@@ -1,1 +1,54 @@
-<h1>hello world</h1>
+<h1>The Runescape Armory</h1>
+
+<% if logged_in?() %>
+    <h3>Welcome to the Runescape Armory, <%= current_user()['username'] %></h3>
+    <form action="/sessions" method="POST">
+      <input type="hidden" name="_method" value="delete">
+      <button>Log Out</button>
+    </form> 
+    <a href="/fight">Fight the boss!</a>
+    <p>Current XP: <%= current_user()['xp'] %></p>
+    <form action="/<%= current_user()['id'] %>/clear" method="POST">
+        <input type="hidden" name="_method" value="put">
+        <button>CLEAR</button> 
+    </form>
+    <h3>Mine to gain XP!</h3>
+    <a href="/<%= current_user()['id'] %>/mine">MINE</a>
+
+
+
+<div class="shop">
+    <h3>Shop Items</h3>
+    <% shop_items.each do |item| %>
+        <div>
+        <img src="<%= item['image_url'] %>" alt="">
+        <p><%= item['name'] %></p>
+        <p><%= item['amount'] %></p>
+        <form action="/item/<%= item['id'] %>/buy" method="POST">
+            <button>BUY</button>
+        </form>
+        </div>
+    <% end %>
+</div>
+
+
+<div class="inventory">
+    <h3>Inventory</h3>
+    <% inventory_items.each do |item| %>
+        <div>
+        <img src="<%= item['image_url'] %>" alt="">
+        <p><%= item['name'] %></p>
+        <p><%= item['amount'] %></p>
+        <form action="/item/<%= item['id'] %>" method="POST">
+            <input type="hidden" name="_method" value="delete">
+            <button>DROP</button>
+        </form>
+        <a href="/item/<%= item['id'] %>/<%= item['name'] %>/upgrade">UPGRADE</a>
+        </div>
+    <% end %>
+
+<% else %>
+    <a href="/sign_up">Sign Up</a>
+    <a href="/login">Login</a>
+<% end %>
+</div>

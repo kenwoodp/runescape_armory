@@ -1,0 +1,48 @@
+<h1>Upgrade Your Weapon!</h1>
+<header>
+    <p>Current XP: <%= current_user()['xp'] %></p>
+    <h3><%= item['name'] %></h3>
+    <img src="<%= item['image_url'] %>" alt="">
+</header>
+
+
+<% if item['name'].include? 'Sword' %>
+    <% swords[level_index..-1].each do |sword| %>
+        <div class="swords">
+            <img src="<%= sword['image_url'] %>" alt="">
+            <p><%= sword['name'] %></p>
+            <p>XP Required: <%= sword['xp_required'] %></p>
+            <form action="/item/swords/<%= sword['id'] %>/<%= sword['xp_required'] %>" method="POST">
+                <input type="hidden" name="_method" value="put">
+                <input type="hidden" name="inventory_id" value="<%= item['id'] %>">
+                <button>SELECT</button>
+            </form>
+        </div>
+    <% end %>
+<% elsif item['name'].include? 'Scimitar' %>
+    <% scimitars[level_index..-1].each do |scimitar| %>
+        <div class="scimitars">
+            <img src="<%= scimitar['image_url'] %>" alt="">
+            <p><%= scimitar['name'] %></p>
+            <p>XP Required: <%= scimitar['xp_required'] %></p>
+            <form action="/item/scimitars/<%= scimitar['id'] %>/<%= scimitar['xp_required'] %>" method="POST">
+                <input type="hidden" name="_method" value="put">
+                <input type="hidden" name="inventory_id" value="<%= item['id'] %>">
+                <button>SELECT</button>
+            </form>
+        </div>
+    <% end %>
+<% elsif item['name'].include? 'Dagger' %>
+    <% daggers[level_index..-1].each do |dagger| %>
+        <div class="daggers">
+                    <img src="<%= dagger['image_url'] %>" alt="">
+            <p><%= dagger['name'] %></p>
+            <p>XP Required: <%= dagger['xp_required'] %></p>
+            <form action="/item/daggers/<%= dagger['id'] %>/<%= dagger['xp_required'] %>" method="POST">
+                <input type="hidden" name="_method" value="put">
+                <input type="hidden" name="inventory_id" value="<%= item['id'] %>">
+                <button>SELECT</button>
+            </form>
+        </div>
+    <% end %>
+<% end %>
