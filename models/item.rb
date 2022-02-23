@@ -23,7 +23,7 @@ def get_upgrade_by_id(name, id)
 end
 
 def upgrade_item(inventory_id, upgrade)
-    run_sql("UPDATE inventory SET name = $2, image_url = $3 WHERE id = $1", [inventory_id, upgrade['name'], upgrade['image_url']])
+    run_sql("UPDATE inventory SET name = $2, image_url = $3, attack_level = $4 WHERE id = $1", [inventory_id, upgrade['name'], upgrade['image_url'], upgrade['attack_level']])
     
 end
 

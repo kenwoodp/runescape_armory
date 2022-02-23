@@ -1,0 +1,7 @@
+<h1>Boss Fight</h1>
+
+<h3>Boss Health: <%= boss_health %></h3>
+
+<form action="/hit/<%= boss_health %>/<%= max_hit %>" method="GET">
+    <button>HIT</button>
+</form>

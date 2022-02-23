@@ -24,7 +24,7 @@ def increment_item(inventory_item)
 end    
 
 def add_to_inventory(item)
-    run_sql("INSERT INTO inventory(name, image_url, amount) VALUES($1, $2, $3)", [item['name'], item['image_url'], 1])
+    run_sql("INSERT INTO inventory(name, image_url, amount, attack_level) VALUES($1, $2, $3, $4)", [item['name'], item['image_url'], 1, item['attack_level']])
 end
 
 def get_inventory_item(id)
