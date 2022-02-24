@@ -1,10 +1,14 @@
 get '/' do
     shop_items =  all_shop_items()
     inventory_items = all_inventory_items()
+    attack_level = max_attack()
+    defence_level = sum_defence()
     
     erb :index, locals: {
         shop_items: shop_items,
         inventory_items: inventory_items,
+        attack_level: attack_level,
+        defence_level: defence_level
     }
 end
 
@@ -12,7 +16,7 @@ post '/item/:id/:price/buy' do
     id = params['id']
     price = params['price'].to_i
     
-
+    
     user_id = current_user()['id'].to_i
     user_xp = current_user()['xp'].to_i
 

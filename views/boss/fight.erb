@@ -1,14 +1,27 @@
-<h1>Boss Fight</h1>
-<form action="/quit/<%= user_health %>" method="POST">
-    <input type="hidden" name="_method" value="put">
-    <label for="">Go back to shop: </label>
-    <button>GO</button>
-</form>
+<div class="page-wrap">
+    <div class="boss-fight">
+        <header class="top-header">
+            <div>
+                <form action="/quit/<%= user_health %>" method="POST">
+                    <input type="hidden" name="_method" value="put">
+                    <button class="back-to-shop-btn">Back to shop...</button>
+                </form>
+            </div>
+            <div>
+                <h1>Boss Fight</h1>
+            </div>
+            <div></div>
+        </header>
 
-<h3>Boss Health: <%= boss_health %></h3>
 
-<h3>Your Health: <%= user_health %></h3>
+    <div class="health">
+        <h3 class="boss-health">Boss Health: <%= boss_health %></h3>
 
-<form action="/hit/<%= boss_health %>/<%= max_hit %>/<%= user_health %>/<%= boss_max_hit %>" method="GET">
-    <button>HIT</button>
-</form>
+        <h3 class="user-health">Your Health: <%= user_health %></h3>
+    </div>
+    
+
+    <a class="attack" href="/hit/<%= boss_health %>/<%= max_hit %>/<%= user_health %>/<%= boss_max_hit %>">ATTACK</a>
+    </div>
+
+</div>

@@ -3,27 +3,186 @@
 @font-face {font-family: "RuneScape UF"; src: url("//db.onlinewebfonts.com/t/4c8754090a7936fac2f8c5f3043db9ee.eot"); src: url("//db.onlinewebfonts.com/t/4c8754090a7936fac2f8c5f3043db9ee.eot?#iefix") format("embedded-opentype"), url("//db.onlinewebfonts.com/t/4c8754090a7936fac2f8c5f3043db9ee.woff2") format("woff2"), url("//db.onlinewebfonts.com/t/4c8754090a7936fac2f8c5f3043db9ee.woff") format("woff"), url("//db.onlinewebfonts.com/t/4c8754090a7936fac2f8c5f3043db9ee.ttf") format("truetype"), url("//db.onlinewebfonts.com/t/4c8754090a7936fac2f8c5f3043db9ee.svg#RuneScape UF") format("svg"); }
 
 
-h1 {
+body {
     font-family: "Runescape UF";
+    text-align: center;
+    width: 80%;
+    background-color: black;
+    color: white;
+    margin: 0 auto;
+}
+
+.page-wrap {
+    background: url(https://www.runescape.com/img/rsp777/bg2.jpg) repeat-y center top;
+    margin: 0 auto;
+    width: 815px;
+    overflow-y: hidden;
+    padding: 0 50px;
+    height: 100vh;
+}
+
+.login-page, .new-session, .mine, .boss-fight, .upgrade, .sign-up {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.top-header {
+    display: grid;
+    grid-template-columns: 2fr 6fr 2fr;
+}
+
+.user-options {
+    text-align: right;
+}
+
+button {
+    background-color: transparent;
+    background-repeat: no-repeat;
+    border: none;
+    padding: 10px;
+    font-family: "Runescape UF";
+    color: #ffff00;
+    font-size: 14px;
+}
+
+.log-out-btn {
+    text-decoration: underline;
+    color: red;
+}
+
+.mine-btn {
+    font-size: 24px;
+    text-decoration: none;
+    color: #ffff00;
+}
+
+.main-header {
+    text-align: center;
+}
+
+.main-header h1 {
+    color: #ffff00;
+}
+
+.interface {
+    display: grid;
+    grid-template-columns: 8fr 2fr;
+    grid-template-rows: 6fr 4fr;
+    gap: 30px;
 }
 
 img {
     height: auto;
     width: auto;
-    max-width: 100px;
-    max-height: 100px;
+    max-width: 70px;
+    max-height: 70px;
+}
+
+.shop-list, .inventory-list {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+    align-items: start;
 }
 
 .shop, .inventory {
+    background: url(https://www.runescape.com/img/rsp777/scroll/backdrop_745.gif) repeat-y top center;
+    padding: 50px;
+    position: relative;
+}
+
+.shop:before, .inventory:before {
+    background: url(https://www.runescape.com/img/rsp777/scroll/backdrop_765_top.gif) no-repeat center top;
+    content: '';
+    height: 50px;
+    left: 0;
+    position: absolute;
+    top: -11px;
+    width: 100%;
+}
+
+.shop-header, .inventory-header {
+    color: #6D4211;
+    text-shadow: 2px 2px rgb(84, 84, 84);
+}
+
+.fight-boss-btn {
+    text-decoration: none;
+    color: red;
+    font-size: 20px;
+}
+
+.price, .xp-gained {
+    color: #ffcc00;
+}
+
+.sign-up-btn, .login-btn {
+    padding: 15px;
+    font-size: 22px;
+    text-decoration: none;
+    color: #ffcc00;
+    text-shadow: 2px 2px rgb(84, 84, 84);
+}
+
+h1 {
+    font-size: 40px;
+    color: white;
+}
+
+.login-details {
+    font-size: 24px;
+}
+
+.rocks {
     display: grid;
-    grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+    grid-template-columns: 1fr 1fr 1fr;
+    margin: 0 auto;
 }
 
-.login-page {
-    position: fixed;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    text-align: center;
+.back-to-shop-btn {
+    font-size: 18px;
+    text-decoration: none;
+    color: #ffcc00;
+    text-shadow: 2px 2px rgb(84, 84, 84);
 }
 
+.login-input {
+    background-color: rgb(182, 182, 182);
+    border-radius: 8px;
+    font-family: "Runescape UF";
+    color: rgb(45, 45, 45);
+    font-size: 24px;
+}
+
+.attack {
+    color: #ffff00;
+    text-decoration: none;
+    font-size: 24px;
+}
+
+.health {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 100px;
+    font-size: 24px;
+}
+
+.boss-health {
+    color: red;
+}
+
+.user-health {
+    color: dodgerblue;
+}
+
+.items {
+    grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
+    display: grid;
+}
+
+a {
+    color: grey;
+    text-decoration: none;
+    font-size: 20px
+}

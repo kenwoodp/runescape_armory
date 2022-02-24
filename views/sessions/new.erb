@@ -1,11 +1,23 @@
-<h1>Enter Your Login Details</h1>
+<div class="page-wrap">
+    <div class="new-session">
+        <h1>Enter Your Login Details</h1>
 
-<form action="/sessions" method="POST">
-    <label for="">Username: </label>
-    <input type="text" name="username"> 
-    
-    <label for="">Password: </label>
-    <input type="password" name="password">
+        <form action="/sessions" method="POST">
+            <p class="login-details">
+                <label for="">Username: </label>
+                <input class="login-input" type="text" name="username"> 
+            </p>
+            
+            <p class="login-details">
+                <label for="">Password: </label>
+                <input class="login-input" type="password" name="password">
+            </p>
+            <div>
+                <a class="login-btn"href="/">Go Back</a>
+                <button class="login-btn">Log in</button>
+            </div>
+            
+        </form>
+    </div>
+</div>
 
-    <button>Log in</button>
-</form>

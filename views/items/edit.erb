@@ -1,88 +1,101 @@
-<h1>Upgrade Your Item</h1>
-<a href="/">Back to shop...</a>
-<header>
-    <p>Current XP: <%= current_user()['xp'] %></p>
-    <h3><%= item['name'] %></h3>
-    <img src="<%= item['image_url'] %>" alt="">
-</header>
+<div class="page-wrap">
+    <div class="upgrade">
+        <header class="top-header">
+            <div>
+                <p><a href="/">Back to shop...</a></p>
+            </div>
+            <div>
+                <h1>Upgrade Your Item</h1>
+                <h3><%= item['name'] %></h3>
+                <img src="<%= item['image_url'] %>" alt="">
+            </div>
+            <div>
+                <p>Current XP: <%= current_user()['xp'] %></p>
+            </div>
+        </header>
 
 
-<% if item['name'].include? 'Sword' %>
-    <% swords[level_index..-1].each do |sword| %>
-        <div class="swords">
-            <img src="<%= sword['image_url'] %>" alt="">
-            <p><%= sword['name'] %></p>
-            <p>XP Required: <%= sword['xp_required'].to_i - item['xp_value'].to_i %></p>
-            <form action="/item/swords/<%= sword['id'] %>/<%= sword['xp_required'].to_i - item['xp_value'].to_i %>" method="POST">
-                <input type="hidden" name="_method" value="put">
-                <input type="hidden" name="inventory_id" value="<%= item['id'] %>">
-                <button>SELECT</button>
-            </form>
+        <div class="items">
+            <% if item['name'].include? 'Sword' %>
+                <% swords[level_index..-1].each do |sword| %>
+                    <div class="swords">
+                        
+                        <p><%= sword['name'] %></p>
+                        <p>Cost: <span class="price"><%= sword['xp_required'].to_i - item['xp_value'].to_i %>XP</span></p>
+                        <form action="/item/swords/<%= sword['id'] %>/<%= sword['xp_required'].to_i - item['xp_value'].to_i %>" method="POST">
+                            <input type="hidden" name="_method" value="put">
+                            <input type="hidden" name="inventory_id" value="<%= item['id'] %>">
+                            <button><img src="<%= sword['image_url'] %>" alt=""></button>
+                        </form>
+                    </div>
+                <% end %>
+            <% elsif item['name'].include? 'Scimitar' %>
+                <% scimitars[level_index..-1].each do |scimitar| %>
+                    <div class="scimitars">
+                        
+                        <p><%= scimitar['name'] %></p>
+                        <p>Cost: <span class="price"><%= scimitar['xp_required'] .to_i - item['xp_value'].to_i %>XP</span></p>
+                        <form action="/item/scimitars/<%= scimitar['id'] %>/<%= scimitar['xp_required'].to_i - item['xp_value'].to_i %>" method="POST">
+                            <input type="hidden" name="_method" value="put">
+                            <input type="hidden" name="inventory_id" value="<%= item['id'] %>">
+                            <button><img src="<%= scimitar['image_url'] %>" alt=""></button>
+                        </form>
+                    </div>
+                <% end %>
+            <% elsif item['name'].include? 'Dagger' %>
+                <% daggers[level_index..-1].each do |dagger| %>
+                    <div class="daggers">
+                                
+                        <p><%= dagger['name'] %></p>
+                        <p>Cost: <span class="price"><%= dagger['xp_required'].to_i - item['xp_value'].to_i %></span></p>
+                        <form action="/item/daggers/<%= dagger['id'] %>/<%= dagger['xp_required'].to_i - item['xp_value'].to_i %>" method="POST">
+                            <input type="hidden" name="_method" value="put">
+                            <input type="hidden" name="inventory_id" value="<%= item['id'] %>">
+                            <button><img src="<%= dagger['image_url'] %>" alt=""></button>
+                        </form>
+                    </div>
+                <% end %>
+            <% elsif item['name'].include? 'Helmet' %>
+                <% helmets[level_index..-1].each do |helmet| %>
+                    <div class="helmets">
+                                
+                        <p><%= helmet['name'] %></p>
+                        <p>Cost: <span class="price"><%= helmet['xp_required'].to_i - item['xp_value'].to_i %></span></p>
+                        <form action="/item/helmets/<%= helmet['id'] %>/<%= helmet['xp_required'].to_i - item['xp_value'].to_i %>" method="POST">
+                            <input type="hidden" name="_method" value="put">
+                            <input type="hidden" name="inventory_id" value="<%= item['id'] %>">
+                            <button><img src="<%= helmet['image_url'] %>" alt=""></button>
+                        </form>
+                    </div>
+                <% end %>
+            <% elsif item['name'].include? 'Platebody' %>
+                <% platebodies[level_index..-1].each do |platebody| %>
+                    <div class="platebodies">
+                                
+                        <p><%= platebody['name'] %></p>
+                        <p>Cost: <span class="price"><%= platebody['xp_required'].to_i - item['xp_value'].to_i %></span></p>
+                        <form action="/item/platebodies/<%= platebody['id'] %>/<%= platebody['xp_required'].to_i - item['xp_value'].to_i %>" method="POST">
+                            <input type="hidden" name="_method" value="put">
+                            <input type="hidden" name="inventory_id" value="<%= item['id'] %>">
+                            <button><img src="<%= platebody['image_url'] %>" alt=""></button>
+                        </form>
+                    </div>
+                <% end %>
+            <% elsif item['name'].include? 'Plateleg' %>
+                <% platelegs[level_index..-1].each do |plateleg| %>
+                    <div class="platelegs">
+                                
+                        <p><%= plateleg['name'] %></p>
+                        <p>Cost: <span class="price"><%= plateleg['xp_required'].to_i - item['xp_value'].to_i %></span></p>
+                        <form action="/item/platelegs/<%= plateleg['id'] %>/<%= plateleg['xp_required'].to_i - item['xp_value'].to_i %>" method="POST">
+                            <input type="hidden" name="_method" value="put">
+                            <input type="hidden" name="inventory_id" value="<%= item['id'] %>">
+                            <button><img src="<%= plateleg['image_url'] %>" alt=""></button>
+                        </form>
+                    </div>
+                <% end %>
+            <% end %>
         </div>
-    <% end %>
-<% elsif item['name'].include? 'Scimitar' %>
-    <% scimitars[level_index..-1].each do |scimitar| %>
-        <div class="scimitars">
-            <img src="<%= scimitar['image_url'] %>" alt="">
-            <p><%= scimitar['name'] %></p>
-            <p>XP Required: <%= scimitar['xp_required'] .to_i - item['xp_value'].to_i %></p>
-            <form action="/item/scimitars/<%= scimitar['id'] %>/<%= scimitar['xp_required'].to_i - item['xp_value'].to_i %>" method="POST">
-                <input type="hidden" name="_method" value="put">
-                <input type="hidden" name="inventory_id" value="<%= item['id'] %>">
-                <button>SELECT</button>
-            </form>
-        </div>
-    <% end %>
-<% elsif item['name'].include? 'Dagger' %>
-    <% daggers[level_index..-1].each do |dagger| %>
-        <div class="daggers">
-                    <img src="<%= dagger['image_url'] %>" alt="">
-            <p><%= dagger['name'] %></p>
-            <p>XP Required: <%= dagger['xp_required'].to_i - item['xp_value'].to_i %></p>
-            <form action="/item/daggers/<%= dagger['id'] %>/<%= dagger['xp_required'].to_i - item['xp_value'].to_i %>" method="POST">
-                <input type="hidden" name="_method" value="put">
-                <input type="hidden" name="inventory_id" value="<%= item['id'] %>">
-                <button>SELECT</button>
-            </form>
-        </div>
-    <% end %>
-<% elsif item['name'].include? 'Helmet' %>
-    <% helmets[level_index..-1].each do |helmet| %>
-        <div class="helmets">
-                    <img src="<%= helmet['image_url'] %>" alt="">
-            <p><%= helmet['name'] %></p>
-            <p>XP Required: <%= helmet['xp_required'].to_i - item['xp_value'].to_i %></p>
-            <form action="/item/helmets/<%= helmet['id'] %>/<%= helmet['xp_required'].to_i - item['xp_value'].to_i %>" method="POST">
-                <input type="hidden" name="_method" value="put">
-                <input type="hidden" name="inventory_id" value="<%= item['id'] %>">
-                <button>SELECT</button>
-            </form>
-        </div>
-    <% end %>
-<% elsif item['name'].include? 'Platebody' %>
-    <% platebodies[level_index..-1].each do |platebody| %>
-        <div class="platebodies">
-                    <img src="<%= platebody['image_url'] %>" alt="">
-            <p><%= platebody['name'] %></p>
-            <p>XP Required: <%= platebody['xp_required'].to_i - item['xp_value'].to_i %></p>
-            <form action="/item/platebodies/<%= platebody['id'] %>/<%= platebody['xp_required'].to_i - item['xp_value'].to_i %>" method="POST">
-                <input type="hidden" name="_method" value="put">
-                <input type="hidden" name="inventory_id" value="<%= item['id'] %>">
-                <button>SELECT</button>
-            </form>
-        </div>
-    <% end %>
-<% elsif item['name'].include? 'Plateleg' %>
-    <% platelegs[level_index..-1].each do |plateleg| %>
-        <div class="platelegs">
-                    <img src="<%= plateleg['image_url'] %>" alt="">
-            <p><%= plateleg['name'] %></p>
-            <p>XP Required: <%= plateleg['xp_required'].to_i - item['xp_value'].to_i %></p>
-            <form action="/item/platelegs/<%= plateleg['id'] %>/<%= plateleg['xp_required'].to_i - item['xp_value'].to_i %>" method="POST">
-                <input type="hidden" name="_method" value="put">
-                <input type="hidden" name="inventory_id" value="<%= item['id'] %>">
-                <button>SELECT</button>
-            </form>
-        </div>
-    <% end %>
-<% end %>
+    </div>
+</div>
+

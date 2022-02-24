@@ -1,21 +1,29 @@
-<h1>Sign Up</h1>
+<div class="page-wrap">
+    <div class="sign-up">
+        <h1>Sign Up</h1>
 
-<form action="/users" method="POST">
-    <p>
-        <label for="">First Name: </label>
-        <input type="text" name="first_name">
-    </p>    
-    <p>
-        <label for="">Last Name: </label>
-        <input type="text" name="last_name">
-    </p>
-    <p>
-        <label for="">Username: </label>
-        <input type="text" name="username">    
-    </p>
-    <p>
-        <label for="">Password: </label>
-        <input type="password" name="password">
-    </p>
-    <button>Submit</button>
-</form>
+        <form action="/users" method="POST">
+            <p class="login-details">
+                <label for="">First Name: </label>
+                <input class="login-input" type="text" name="first_name">
+            </p>    
+            <p class="login-details">
+                <label for="">Last Name: </label>
+                <input class="login-input" type="text" name="last_name">
+            </p>
+            <p class="login-details">
+                <label for="">Username: </label>
+                <input class="login-input" type="text" name="username">    
+            </p>
+            <p class="login-details">
+                <label for="">Password: </label>
+                <input class="login-input" type="password" name="password">
+            </p>
+            <div>
+                <a class="login-btn" href="/">Go Back</a>
+                <button class="login-btn">Submit</button>
+            </div>
+            
+        </form>
+    </div>
+</div>

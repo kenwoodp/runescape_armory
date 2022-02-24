@@ -1,5 +1,5 @@
-get '/:id/mine' do
-    user_id = params['id']
+get '/mine' do
+    user_id = session['user_id']
     ores = get_all_ores()
 
     erb :'xp/mine', locals: {
@@ -8,20 +8,17 @@ get '/:id/mine' do
     }
 end
 
-get '/:id/:xp/gain' do
-    user_id = params['id']
+post '/:xp/gain' do
+    user_id = session['user_id']
     xp_gained = params['xp']
     gain_xp(user_id, xp_gained)
     ores = get_all_ores()
-
-    erb :'xp/mine', locals: {
-        ores: ores,
-        user_id: user_id
-    } 
+    
+    redirect '/mine'
 end
 
-put '/:id/clear' do
-    id = params['id']
+put '/clear' do
+    id = session['user_id']
     clear_xp(id)
 
     redirect '/'

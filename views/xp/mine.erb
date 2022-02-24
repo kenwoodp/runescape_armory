@@ -1,15 +1,34 @@
-<h1>The Mine</h1>
+<div class="page-wrap">
+    <div class="mine">
+        <header class="top-header">
+            <div>
+                <p>
+                    <a class="back-to-shop-btn" href="/">Back to shop...</a>
+                </p>
+            </div>
+            <div>
+                <h1>The Mine</h1>
+            </div>
+            <div>
+                <p>Current XP: <%= current_user()['xp'] %></p>
+            </div>
+        </header>
 
-<header>
-    <a href="/">Back to shop...</a>
-    <p>Current XP: <%= current_user()['xp'] %></p>
-</header>
+        <div class="rocks">
+            <% ores.each do |ore| %>
+                <div>
+                    <form action="/<%=ore['xp_gained'] %>/gain" method="POST">
+                        <input type="hidden" name="_method" value="post">
+                        <button><img src="<%= ore['image_url'] %>" alt=""></button>
+                    </form>
+                    <p><%= ore['name'] %></p>
+                    <p><span class="xp-gained"><%= ore['xp_gained'] %>XP</span></p>
+                </div>
+                    
+                
+            <% end %>
+        </div>
+    </div>
 
-<div class="rocks">
-    <% ores.each do |ore| %>
-    <img src="<%= ore['image_url'] %>" alt="">
-    <form action="/<%= user_id %>/<%=ore['xp_gained'] %>/gain" method="get">
-        <button>MINE</button>
-    </form>
-<% end %>
 </div>
+
