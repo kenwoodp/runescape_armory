@@ -20,7 +20,8 @@ get '/fight' do
     }
 end
 
-get '/hit/:boss_health/:max_hit/:user_health/:boss_max_hit' do
+get '/hit' do
+
     boss_health = params['boss_health'].to_i
     max_hit = params['max_hit'].to_i
     user_health = params['user_health'].to_i

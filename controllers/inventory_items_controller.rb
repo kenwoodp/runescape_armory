@@ -5,7 +5,7 @@ delete '/item/:id' do
     redirect '/'
 end
 
-get '/item/:id/:name/upgrade' do
+get '/item/upgrade' do
     levels = ['Bronze', 'Iron', 'Steel', 'Black', 'Mithril', 'Adamant', 'Rune', 'Dragon']
     id = params['id']
     name = params['name']

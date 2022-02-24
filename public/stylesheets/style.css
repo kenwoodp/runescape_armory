@@ -8,7 +8,7 @@ body {
     text-align: center;
     width: 80%;
     background-color: black;
-    color: white;
+    color: rgb(216, 216, 216);
     margin: 0 auto;
 }
 
@@ -21,7 +21,7 @@ body {
     height: 100vh;
 }
 
-.login-page, .new-session, .mine, .boss-fight, .upgrade, .sign-up {
+.login-page, .new-session, .mine, .boss-fight, .upgrade, .sign-up, .death, .win {
     position: fixed;
     top: 50%;
     left: 50%;
@@ -104,7 +104,7 @@ img {
 
 .shop-header, .inventory-header {
     color: #6D4211;
-    text-shadow: 2px 2px rgb(84, 84, 84);
+    text-shadow: 1px 1px rgb(84, 84, 84);
 }
 
 .fight-boss-btn {
@@ -177,7 +177,7 @@ h1 {
 }
 
 .items {
-    grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
+    grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
     display: grid;
 }
 
