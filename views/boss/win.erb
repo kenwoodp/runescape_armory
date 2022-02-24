@@ -1,0 +1,5 @@
+<h1>Congratulations, <%= current_user()['username'] %>, you slayed the dragon.</h1>
+<form action="/play_again" method="POST">
+    <input type="hidden" name="_method" value="put">
+    <button>Play Again?</button>
+</form>

@@ -25,6 +25,9 @@ get '/item/:id/:name/upgrade' do
     swords = all_swords()
     scimitars = all_scimitars()
     daggers = all_daggers()
+    helmets = all_helmets()
+    platebodies = all_platebodies()
+    platelegs = all_platelegs()
 
     # binding.pry
     erb :'items/edit', locals: {
@@ -32,24 +35,28 @@ get '/item/:id/:name/upgrade' do
         level_index: level_index,
         swords: swords,
         scimitars: scimitars,
-        daggers: daggers
+        daggers: daggers,
+        helmets: helmets,
+        platebodies: platebodies,
+        platelegs: platelegs
     }
 
 end
 
 put '/item/:name/:id/:xp_required' do
     xp_required = params['xp_required'].to_i
+    user_xp = current_user()['xp'].to_i
 
     id = params['id']
     name = params['name']
     inventory_id = params['inventory_id']
     # binding.pry
-    if current_user()['xp'].to_i >= xp_required
+    if user_xp >= xp_required
         upgrade = get_upgrade_by_id(name, id)
 
         upgrade_item(inventory_id, upgrade)
 
-        spend_xp(xp_required)
+        spend_xp(xp_required, user_xp)
     end
 
     redirect '/'

@@ -18,19 +18,27 @@ def all_daggers()
     run_sql("SELECT * FROM daggers").to_a
 end
 
+def all_helmets()
+    run_sql("SELECT * FROM helmets").to_a
+end
+
+def all_platebodies()
+    run_sql("SELECT * FROM platebodies").to_a
+end
+
+def all_platelegs()
+    run_sql("SELECT * FROM platelegs").to_a
+end
+
 def get_upgrade_by_id(name, id)
     run_sql("SELECT * FROM #{name} WHERE id = $1", [id])[0]
 end
 
 def upgrade_item(inventory_id, upgrade)
-    run_sql("UPDATE inventory SET name = $2, image_url = $3, attack_level = $4 WHERE id = $1", [inventory_id, upgrade['name'], upgrade['image_url'], upgrade['attack_level']])
+    run_sql("UPDATE inventory SET name = $2, image_url = $3, attack_level = $4, defence_level = $5, xp_value = $6 WHERE id = $1", [inventory_id, upgrade['name'], upgrade['image_url'], upgrade['attack_level'], upgrade['defence_level'], upgrade['xp_required']])
     
 end
 
-def spend_xp(xp_required)
-    user_xp = current_user()['xp'].to_i
-
-    user_xp -= xp_required
-
-    run_sql("UPDATE users SET xp = $2 WHERE id = $1",[current_user()['id'], user_xp])
+def spend_xp(xp_required, user_xp)
+    run_sql("UPDATE users SET xp = $2 WHERE id = $1",[current_user()['id'], user_xp -= xp_required])
 end
