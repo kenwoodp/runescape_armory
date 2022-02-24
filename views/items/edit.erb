@@ -34,7 +34,7 @@
                     <div class="scimitars">
                         
                         <p><%= scimitar['name'] %></p>
-                        <p>Cost: <span class="price"><%= scimitar['xp_required'] .to_i - item['xp_value'].to_i %>XP</span></p>
+                        <p>Cost: <span class="price"><%= scimitar['xp_required'].to_i - item['xp_value'].to_i %>XP</span></p>
                         <form action="/item/scimitars/<%= scimitar['id'] %>/<%= scimitar['xp_required'].to_i - item['xp_value'].to_i %>" method="POST">
                             <input type="hidden" name="_method" value="put">
                             <input type="hidden" name="inventory_id" value="<%= item['id'] %>">
