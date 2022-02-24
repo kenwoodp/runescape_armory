@@ -47,3 +47,5 @@ A currency system other than XP could be introduced to buy and upgrade items. XP
 A pickaxe could be bought from the store and upgraded, and each rock would have a minimum upgrade requirement to mine, since each rock has a different XP gained value, as it stands, there is no reason to mine any rock other than the rune rock, which earns the most XP.
 
 There is plenty of other features that could be added to flesh out the experience for the user, and it would all be possible with some simple ruby code and some spare time.
+
+An API could also be used to pull images automatically to add them to the store to increase scalability.
