@@ -33,6 +33,12 @@ body {
     grid-template-columns: 2fr 6fr 2fr;
 }
 
+.upgrade-header {
+    display: grid;
+    grid-template-columns: 2fr 6fr 2fr;
+    margin-bottom: 50px;
+}
+
 .user-options {
     text-align: right;
 }
@@ -179,6 +185,7 @@ h1 {
 .items {
     grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
     display: grid;
+    gap: 30px;
 }
 
 a {
